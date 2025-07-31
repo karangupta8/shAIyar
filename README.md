@@ -60,8 +60,7 @@ For individuals who straddle two languages — fluent in one, aspiring in anothe
 - 📚 **Students & Scholars**: Those studying poetry, translation, culture, or linguistics who require deeper insights into poetic and contextual nuances.
 - 🧠 **Curious Explorers**: Anyone passionate about poetry but hindered by script unfamiliarity or vocabulary gaps.
 
-ShAIyar bridges the gap between literary appreciation and linguistic confidence.
-
+ShAIyar aims to bridge the gap between literary appreciation and linguistic confidence.
 
 ---
 
@@ -88,7 +87,7 @@ ShAIyar bridges the gap between literary appreciation and linguistic confidence.
 - **Flexible Configuration**: Supports both inline and file-based settings for ease of use and environment customization.
 - **Logging System**: Detailed logging for easy debugging and process monitoring.
 
-
+--
 
 ## Sample System Prompt, Input and Output
 
@@ -101,8 +100,9 @@ For each line:
 3. Briefly explain the line in English.
 Keep it short and structured.
 
-For Example:
-Input:
+###For Example
+
+###Input:
 
 मुख से तू अविरत कहता जा — मधु, मदिरा, मादक हाला।
 हाथों में अनुभव करता जा — एक ललित कल्पित प्याला।
@@ -110,7 +110,7 @@ Input:
 और बढ़ा चल, पथिक, न तुझको दूर लगेगी मधुशाला।।
 
 
-Output:
+###Output:
 मुख से तू अविरत कहता जा मधु,
 You keep saying sweet nothings from your lips, 
 Explanation: The speaker is being flirted with or receiving sweet talk from someone.
@@ -136,18 +136,37 @@ You won't feel far from the tavern of love.
 Explanation: The speaker is promising that the beloved won't feel distant from the place of love and affection.
 
 
+## Advantage of Using LLM vs Traditional Translation Methods
 
-## Advnatage of using LLM vs Traditional Translation Methods
+### 1. Difficulty Assessment
+- **LLM Capability**: Assess the difficulty level of each poem or individual word based on context and user familiarity.
+- **Advantage**: Prioritizes the explanation of more complex parts, helping users focus their attention effectively.
 
-Difficulty Assessment: Use an LLM to assess the difficulty level of each poem or word, and prioritize explanations accordingly.
-Contextual Explanation: Use an LLM to provide more nuanced and context-aware explanations of difficult words, going beyond simple dictionary definitions.
-Style Adaptation: Use an LLM to adapt the translation style to match the original poem's tone and rhythm.
-Content Generation: Use an LLM to generate summaries or analyses of each poem.
+### 2. Contextual Explanation
+- **LLM Capability**: Provide nuanced, context-aware meanings of difficult words and phrases.
+- **Advantage**: Goes beyond dictionary definitions to incorporate poetic nuance, idiomatic use, and cultural relevance.
+
+### 3. Style Adaptation
+- **LLM Capability**: Translate while preserving the poem’s original tone, rhythm, and literary devices.
+- **Advantage**: Maintains the artistic and emotional essence of the original, improving literary fidelity.
+
+### 4. Content Generation
+- **LLM Capability**: Generate summaries, analyses, or thematic breakdowns of each poem.
+- **Advantage**: Aids in deeper understanding and academic engagement with the text.
+
+---
 
 ## Success Metrics
-Reduced time spent looking up word meanings.
-Improved comprehension of the poetry.
-Increased user satisfaction with the reading experience.
+
+- ⏱ **Reduced time spent looking up word meanings**  
+  Users spend less time consulting external dictionaries or reference materials.
+
+- 📖 **Improved comprehension of the poetry**  
+  Users demonstrate a better grasp of themes, imagery, and vocabulary.
+
+- 😊 **Increased user satisfaction with the reading experience**  
+  Higher engagement levels and positive feedback from readers using LLM-supported tools.
+
 
 
 ## Installation
@@ -254,5 +273,5 @@ Comprehensive logging is implemented throughout the application:
 ## 📜 License
 Distributed under the MIT License.
 
-##👤 Author
+## 👤 Author
 Karan Gupta
