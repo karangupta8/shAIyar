@@ -1,0 +1,50 @@
+# ShAIyar Configuration File
+
+# Configuration for the Large Language Model (LLM)
+llm_config:
+  # The LLM provider to use.
+  # Type: string
+  # Options: groq, openai, google
+  provider: "groq"
+  # The specific model name from the provider.
+  # Type: string
+  model_name: "llama3-70b-8192"
+  # Your API key for the selected provider.
+  # Type: string
+  api_key: "your_api_key_here"
+  # Controls the randomness of the output. Higher values mean more creative, lower values mean more deterministic.
+  # Type: float (e.g., 0.7)
+  temperature: 0.7
+  # The maximum number of tokens to generate in a single API call.
+  # Type: integer
+  max_tokens: 4096
+  # The size of text chunks sent to the LLM. This might be redundant with processing_config.chunk_size.
+  # Type: integer
+  chunk_size: 1000
+
+# Configuration for file paths and handling
+file_config:
+  # The path to the input .docx file that needs to be processed.
+  # Type: string (file path)
+  input_docx_path: "Data/Input_Madhushala.docx"
+  # The path where the processed output .docx file will be saved.
+  # Type: string (file path)
+  output_docx_path: "Data/Output__Madhushala.docx"
+  # The path to a text file containing the system message or prompt for the LLM.
+  # Type: string (file path)
+  system_message_path: "System_Message.txt"
+  # The separator string used to split the input document into parts for processing.
+  # Type: string
+  separator: "\n*********\n"
+
+# Configuration for the processing logic
+processing_config:
+  # The size of text chunks (in characters or tokens, depending on implementation) to split the input text into.
+  # Type: integer
+  chunk_size: 1000
+  # The delay in seconds between consecutive API requests to avoid rate limiting.
+  # Type: float (e.g., 1.0)
+  delay_between_requests: 1.0
+  # The maximum number of times to retry a failed API request.
+  # Type: integer
+  max_retries: 3
