@@ -12,7 +12,7 @@ I did not find any appropriate translations of the book online. However, I did f
 - [Project Description](#project-description)
 - [Inspiration](#inspiration)
 - [🎯 Goal](#-goal)
-- [🧑‍🎓 Target Users](#-target-users)
+- [🧑‍🎓 Ideal Users](#-ideal-users)
 - [🔍 Key Features](#-key-features)
   - [Literary Experience](#-literary-experience)
   - [System Features](#-system-features)
@@ -31,7 +31,6 @@ I did not find any appropriate translations of the book online. However, I did f
   - [LLM Providers](#llm-providers)
 - [Error Handling](#error-handling)
 - [Logging](#logging)
-- [Contributing](#contributing)
 - [📜 License](#-license)
 - [👤 Author](#-author)
 
@@ -49,11 +48,9 @@ I did not find any appropriate translations of the book online. However, I did f
 
 ---
 
-## 🧑‍🎓 Target Users
+## 🧑‍🎓 Ideal Users
 
 For individuals who straddle two languages — fluent in one, aspiring in another — and are eager to engage with literature that lies just beyond their linguistic comfort zone.
-
-### Ideal Users
 
 - 🔄 **Bilingual Readers**: Individuals with strong (C1–C2) proficiency in one language and intermediate (B1–B2) in another, seeking to explore literature in their less dominant language.
 - 🌍 **Diaspora Communities**: People reconnecting with their heritage through classical texts in native scripts they may not read fluently.
@@ -87,7 +84,7 @@ ShAIyar aims to bridge the gap between literary appreciation and linguistic conf
 - **Flexible Configuration**: Supports both inline and file-based settings for ease of use and environment customization.
 - **Logging System**: Detailed logging for easy debugging and process monitoring.
 
---
+---
 
 ## Sample System Prompt, Input and Output
 
@@ -100,9 +97,9 @@ For each line:
 3. Briefly explain the line in English.
 Keep it short and structured.
 
-###For Example
+### For Example
 
-###Input:
+### Input:
 
 मुख से तू अविरत कहता जा — मधु, मदिरा, मादक हाला।
 हाथों में अनुभव करता जा — एक ललित कल्पित प्याला।
@@ -110,7 +107,7 @@ Keep it short and structured.
 और बढ़ा चल, पथिक, न तुझको दूर लगेगी मधुशाला।।
 
 
-###Output:
+### Output:
 मुख से तू अविरत कहता जा मधु,
 You keep saying sweet nothings from your lips, 
 Explanation: The speaker is being flirted with or receiving sweet talk from someone.
@@ -158,13 +155,13 @@ Explanation: The speaker is promising that the beloved won't feel distant from t
 
 ## Success Metrics
 
-- ⏱ **Reduced time spent looking up word meanings**  
+- **Reduced time spent looking up word meanings**  
   Users spend less time consulting external dictionaries or reference materials.
 
-- 📖 **Improved comprehension of the poetry**  
+- **Improved comprehension of the poetry**  
   Users demonstrate a better grasp of themes, imagery, and vocabulary.
 
-- 😊 **Increased user satisfaction with the reading experience**  
+- **Increased user satisfaction with the reading experience**  
   Higher engagement levels and positive feedback from readers using LLM-supported tools.
 
 
@@ -262,13 +259,6 @@ Comprehensive logging is implemented throughout the application:
 - Different log levels (DEBUG, INFO, WARNING, ERROR)
 - Structured log messages with timestamps
 
-## Contributing
-
-1. Follow PEP 8 coding standards
-2. Add comprehensive error handling
-3. Include docstrings for all functions
-4. Write unit tests for new features
-5. Update documentation as needed
 
 ## 📜 License
 Distributed under the MIT License.
