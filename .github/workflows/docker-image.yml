@@ -24,12 +24,21 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
+    - run: echo "docker build . --tag ghcr.io/karangupta8/shaiyar:$(date +%s)"
+
     - name: Build and tag Docker image
       run: |
-        IMAGE_ID=ghcr.io/${{ github.repository_owner }}/my-image-name
-        TIMESTAMP=$(date +%s)
-        docker build . --file Dockerfile --tag $IMAGE_ID:$TIMESTAMP --tag $IMAGE_ID:latest
+       IMAGE_ID="ghcr.io/karangupta8/shaiyar"
+       TIMESTAMP=$(date +%s)
 
+       echo "Image ID: $IMAGE_ID"
+       echo "Tag: $TIMESTAMP"
+
+       docker build . \
+       --file Dockerfile \
+       --tag "$IMAGE_ID:$TIMESTAMP" \
+       --tag "$IMAGE_ID:latest"
+    
     - name: Push Docker image
       run: |
         IMAGE_ID=ghcr.io/${{ github.repository_owner }}/my-image-name
