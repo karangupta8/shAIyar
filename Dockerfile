@@ -15,5 +15,8 @@ WORKDIR /app/src
 # --upgrade pip: Ensures we have the latest version of pip.
 RUN pip install --no-cache-dir --upgrade pip -r /app/requirements.txt
 
+# Create the logs directory
+RUN mkdir -p /app/src/logs
+
 # Run the Python script using its path.  This is much simpler and less error-prone.
 CMD ["python", "main.py"] # Or: CMD ["python", "/app/src/main.py"]
