@@ -2,23 +2,18 @@
 FROM python:3.11-slim
 
 # Set the working directory in the container
-WORKDIR /code
+WORKDIR /app  # Simpler: Use /app as the working directory
 
-# Copy the dependencies file to the working directory
-COPY requirements.txt .
+# Copy the entire project into the container
+COPY . /app
+
+# Change current directory to src for installation and execution
+WORKDIR /app/src
 
 # Install any needed packages specified in requirements.txt
 # --no-cache-dir: Disables the cache, which is not needed in a container build and saves space.
 # --upgrade pip: Ensures we have the latest version of pip.
-RUN pip install --no-cache-dir --upgrade pip -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip -r /app/requirements.txt
 
-# Copy the application source code into the container
-COPY ./src /code/src
-
-# Create a directory for logs, as specified in main.py
-RUN mkdir logs
-
-# Set the entrypoint to run the Python script.
-# Using -m ensures the script is run as a module within the 'src' package,
-# which is best practice for packaged applications.
-ENTRYPOINT ["python", "-m", "src.main"]
+# Run the Python script using its path.  This is much simpler and less error-prone.
+CMD ["python", "main.py"] # Or: CMD ["python", "/app/src/main.py"]
