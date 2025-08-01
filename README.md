@@ -176,6 +176,52 @@ Explanation: The speaker is promising that the beloved won't feel distant from t
 
 ## Usage
 
+
+## Docker Usage
+
+The recommended way to run this application is via Docker, which ensures that all dependencies and environment configurations are handled correctly.
+
+### Prerequisites
+
+- Docker must be installed on your system.
+
+### 1. Building the Docker Image
+
+First, build the Docker image from the project's root directory (where the `Dockerfile` is located).
+
+```bash
+docker build -t shaiyar-processor .
+```
+
+This command builds an image and tags (`-t`) it with the name `shaiyar-processor`.
+
+### 2. Running the Container
+
+To run the application, you need to use `docker run`. Since the script processes local files, you must mount a local directory into the container using a volume (`-v`). This allows the script inside the container to access your input files and save the output back to your machine.
+
+**Example:**
+
+Let's assume you have a directory named `data` in your project root for your input and output files.
+
+```bash
+docker run --rm -v "$(pwd)/data:/code/data" shaiyar-processor \
+  --input "data/my_document.docx" \
+  --output "data/processed_document.docx" \
+  --provider "openai" \
+  --api-key "YOUR_API_KEY_HERE" \
+  --verbose
+```
+
+**Command Breakdown:**
+
+- `docker run --rm`: Runs the container and automatically removes it once the script finishes.
+- `-v "$(pwd)/data:/code/data"`: Mounts your local `data` directory into the `/code/data` directory inside the container. This is crucial for file access.
+- `shaiyar-processor`: The name of the image to run.
+- `--input "data/..."`, `--output "data/..."`, etc.: These are the command-line arguments passed directly to the Python script. Note that the file paths are relative to the container's working directory (`/code`).
+
+> **Security Note**: For better security, avoid passing API keys directly as command-line arguments. Consider modifying the application to read keys from environment variables, which can be passed securely to the container using the `-e` flag (e.g., `-e "OPENAI_API_KEY=your_key"`).
+
+
 ### Command Line Interface
 
 ```bash
