@@ -4,14 +4,14 @@
 llm_config:
   # The LLM provider to use.
   # Type: string
-  # Options: groq, openai, google
+  # Options: groq, openai, google, ollama
   provider: "groq"
   # The specific model name from the provider.
   # Type: string
-  model_name: "llama3-70b-8192"
+  model_name: "llama-3.3-70b-versatile"
   # Your API key for the selected provider.
   # Type: string
-  api_key: "your_api_key_here"
+  api_key: ""
   # Controls the randomness of the output. Higher values mean more creative, lower values mean more deterministic.
   # Type: float (e.g., 0.7)
   temperature: 0.7
@@ -26,7 +26,7 @@ file_config:
   input_docx_path: "src/InputOutput/Input_Madhushala.docx"
   # The path where the processed output .docx file will be saved.
   # Type: string (file path)
-  output_docx_path: "src/InputOutput/Output__Madhushala.docx"
+  output_docx_path: "src/InputOutput/Output_Madhushala.docx"
   # The path to a text file containing the system message or prompt for the LLM.
   # Type: string (file path)
   system_message_path: "src/Data/System_Message.txt"

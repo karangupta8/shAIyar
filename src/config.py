@@ -4,7 +4,7 @@ Handles all configurable parameters and settings.
 """
 
 import os
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 import yaml
 from dataclasses import dataclass
 from pathlib import Path
@@ -13,9 +13,9 @@ from pathlib import Path
 @dataclass
 class LLMConfig:
     """Configuration for LLM model settings."""
-    provider: str  # LLM provider, e.g., 'groq', 'openai', 'google'
+    provider: str  # LLM provider, e.g., 'groq', 'openai', 'google', 'ollama'
     model_name: str  # Name of the model to use
-    api_key: str  # API key for the provider
+    api_key: Optional[str] = None  # API key for the provider
     temperature: float = 0.7  # Controls randomness in generation
     max_tokens: int = 4096  # Maximum number of tokens to generate
 
@@ -40,18 +40,22 @@ class ProcessingConfig:
 class Config:
     """Main configuration class for the ShAIyar project."""
     
-    def __init__(self, config_path: str = "config.yaml"):
+    def __init__(self, config_path: Optional[str] = None):
         """
         Initialize configuration with default values or load from file.
         
         Args:
             config_path: Optional path to configuration file
         """
+        # If no config path is provided, use the default.
+        if config_path is None:
+            config_path = "src/config.yaml"
+
         # Set default configurations for all sections
         self.llm_config = LLMConfig(
             provider="groq",
             model_name="llama3-70b-8192",
-            api_key="",
+            api_key="your_api_key_here",
             temperature=0.7,
             max_tokens=4096
         )
@@ -69,8 +73,8 @@ class Config:
             max_retries=3
         )
         
-        # If a config file is provided and exists, load it to override defaults
-        if config_path and Path(config_path).exists():
+        # If the config file exists, load it to override defaults
+        if Path(config_path).exists():
             self.load_from_file(config_path)
     
     def load_from_file(self, config_path: str) -> None:
@@ -83,7 +87,8 @@ class Config:
         try:
             with open(config_path, 'r', encoding='utf-8') as f:
                 config_data = yaml.safe_load(f)
-
+            
+            
             # Update LLM config from file if 'llm_config' section exists
             if llm_data := config_data.get('llm_config'):
                 for key, value in llm_data.items():
@@ -117,9 +122,10 @@ class Config:
             ValueError: If a required configuration value is missing or invalid.
             FileNotFoundError: If a required file does not exist.
         """
-        # API key is mandatory for LLM providers
-        if not self.llm_config.api_key:
-            raise ValueError("API key is required")
+        # API key is mandatory for certain LLM providers
+        providers_requiring_key = ['groq', 'openai', 'google']
+        if self.llm_config.provider.lower() in providers_requiring_key and not self.llm_config.api_key:
+            raise ValueError(f"API key is required for provider '{self.llm_config.provider}'")
         
         # Input document must exist
         if not os.path.exists(self.file_config.input_docx_path):

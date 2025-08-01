@@ -74,7 +74,7 @@ ShAIyar aims to bridge the gap between literary appreciation and linguistic conf
 ### 🧩 System Features
 
 - **Modular Architecture**: Clean, maintainable codebase with decoupled modules for parsing, processing, AI queries, and output generation.
-- **Multi-LLM Support**: Plug-and-play support for Groq, OpenAI, and Google Gemini APIs.
+- **Multi-LLM Support**: Plug-and-play support for Ollama, Groq, OpenAI, and Google Gemini APIs.
 - **Incremental Saving**: Automatically saves progress after each processed block to prevent data loss.
 - **Progress Tracking**: Visual progress indicators and summaries while processing large documents.
 
@@ -288,6 +288,7 @@ The application supports configuration through:
 - **Groq**: Fast inference with llama3-70b-8192
 - **OpenAI**: GPT models with comprehensive capabilities
 - **Google**: Gemini models for text processing
+- **Ollama**: For Local LLM Inference
 
 ## Error Handling
 

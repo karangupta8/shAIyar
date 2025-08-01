@@ -4,6 +4,7 @@ Provides a command-line interface for document processing.
 """
 
 import argparse
+import datetime
 import logging
 import sys
 from pathlib import Path
@@ -31,7 +32,7 @@ def setup_logging(level: str = "INFO") -> None:
 
 def main():
     """Main entry point for the application."""
-    parser = argparse.ArgumentParser(description="ShAIyar - Document Processing Tool")
+    parser = argparse.ArgumentParser(description="ShAIyar")
     parser.add_argument(
         "--input", "-i",
         type=str,
@@ -50,8 +51,7 @@ def main():
     parser.add_argument(
         "--provider", "-p",
         type=str,
-        choices=["groq", "openai", "google"],
-        default="groq",
+        choices=["groq", "openai", "google", "ollama"],
         help="LLM provider"
     )
     parser.add_argument(
