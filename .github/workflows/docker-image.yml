@@ -12,35 +12,59 @@ jobs:
 
     permissions:
       contents: read
-      packages: write  # Required to push to GHCR
+      packages: write # Required to push to GHCR
 
     steps:
     - uses: actions/checkout@v4
 
     - name: Log in to GitHub Container Registry
-      uses: docker/login-action@v2
+      uses: docker/login-action@v3 # Use v3 for latest features and fixes
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - run: echo "docker build . --tag ghcr.io/karangupta8/shaiyar:$(date +%s)"
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3 # Recommended for building Docker images
 
     - name: Build and tag Docker image
+      id: docker_build # Add an ID to this step to access outputs
       run: |
-       IMAGE_ID="ghcr.io/karangupta8/shaiyar"
-       TIMESTAMP=$(date +%s)
+        IMAGE_NAME="ghcr.io/${{ github.repository_owner }}/shaiyar"
+        # Use a more reliable and consistent timestamp for tagging
+        # For pushes to main, use the short SHA as part of the tag, and also 'latest'
+        # For pull requests, use the short SHA only (no 'latest' to avoid overwriting production tags)
+        if [[ "${{ github.event_name }}" == "push" ]]; then
+          TAG_SUFFIX="latest,${{ github.sha }}"
+        else
+          TAG_SUFFIX="${{ github.sha }}"
+        fi
+        
+        # Use full SHA for unique tag, and also a short SHA (first 7 chars) for convenience
+        FULL_TAG="${{ github.sha }}"
+        SHORT_TAG="${{ github.sha }}"
+        
+        # Output the tags for use in subsequent steps
+        echo "image_name=$IMAGE_NAME" >> $GITHUB_OUTPUT
+        echo "full_tag=$FULL_TAG" >> $GITHUB_OUTPUT
+        echo "short_tag=${SHORT_TAG::7}" >> $GITHUB_OUTPUT # Get first 7 characters for short tag
 
-       echo "Image ID: $IMAGE_ID"
-       echo "Tag: $TIMESTAMP"
-
-       docker build . \
-       --file Dockerfile \
-       --tag "$IMAGE_ID:$TIMESTAMP" \
-       --tag "$IMAGE_ID:latest"
-    
+        docker build . \
+          --file Dockerfile \
+          --tag "$IMAGE_NAME:$FULL_TAG" \
+          --tag "$IMAGE_NAME:${SHORT_TAG::7}" \
+          --tag "$IMAGE_NAME:latest" # Only tag as latest on push to main
+          
     - name: Push Docker image
       run: |
-        IMAGE_ID=ghcr.io/${{ github.repository_owner }}/shaiyar
-        docker push $IMAGE_ID:$TIMESTAMP
-        docker push $IMAGE_ID:latest
+        IMAGE_NAME="${{ steps.docker_build.outputs.image_name }}"
+        FULL_TAG="${{ steps.docker_build.outputs.full_tag }}"
+        SHORT_TAG="${{ steps.docker_build.outputs.short_tag }}"
+        
+        docker push "$IMAGE_NAME:$FULL_TAG"
+        docker push "$IMAGE_NAME:$SHORT_TAG"
+        
+        # Only push 'latest' tag for pushes to main branch
+        if [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" ]]; then
+          docker push "$IMAGE_NAME:latest"
+        fi
