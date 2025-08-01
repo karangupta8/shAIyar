@@ -56,9 +56,9 @@ class Config:
         )
         
         self.file_config = FileConfig(
-            input_docx_path="Bachchans_Madhushala.docx",
-            output_docx_path="Out_Bachchans_Madhushala.docx",
-            system_message_path="System_Message.txt",
+            input_docx_path="src/InputOutput/Input_Madhushala.docx",
+            output_docx_path="src/InputOutput/Output_Madhushala.docx",
+            system_message_path="src/Data/System_Message.txt",
             separator="\n*********\n"
         )
         

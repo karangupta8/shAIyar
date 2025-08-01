@@ -1,0 +1,35 @@
+# Logs
+#logs/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.env
+env/
+venv/
+.venv
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Notebooks
+.ipynb_checkpoints
+
+# OS-generated files
+.DS_Store
+Thumbs.db

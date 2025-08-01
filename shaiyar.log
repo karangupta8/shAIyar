@@ -1,4 +1,0 @@
-2025-08-01 10:28:17,792 - __main__ - INFO - Starting ShAIyar document processing
-2025-08-01 10:28:17,793 - __main__ - ERROR - Application error: LLMConfig.__init__() got an unexpected keyword argument 'chunk_size'
-2025-08-01 10:30:08,577 - __main__ - INFO - Starting ShAIyar document processing
-2025-08-01 10:30:08,577 - __main__ - ERROR - Application error: API key is required

@@ -23,13 +23,13 @@ llm_config:
 file_config:
   # The path to the input .docx file that needs to be processed.
   # Type: string (file path)
-  input_docx_path: "Data/Input_Madhushala.docx"
+  input_docx_path: "src/InputOutput/Input_Madhushala.docx"
   # The path where the processed output .docx file will be saved.
   # Type: string (file path)
-  output_docx_path: "Data/Output__Madhushala.docx"
+  output_docx_path: "src/InputOutput/Output__Madhushala.docx"
   # The path to a text file containing the system message or prompt for the LLM.
   # Type: string (file path)
-  system_message_path: "System_Message.txt"
+  system_message_path: "src/Data/System_Message.txt"
   # The separator string used to split the input document into parts for processing.
   # Type: string
   separator: "\n*********\n"

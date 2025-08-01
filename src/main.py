@@ -23,7 +23,7 @@ def setup_logging(level: str = "INFO") -> None:
         level=getattr(logging, level.upper()),
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.FileHandler('shaiyar.log'),
+            logging.FileHandler('logs/shaiyar.log'),
             logging.StreamHandler(sys.stdout)
         ]
     )
