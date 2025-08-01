@@ -18,9 +18,6 @@ llm_config:
   # The maximum number of tokens to generate in a single API call.
   # Type: integer
   max_tokens: 4096
-  # The size of text chunks sent to the LLM. This might be redundant with processing_config.chunk_size.
-  # Type: integer
-  chunk_size: 1000
 
 # Configuration for file paths and handling
 file_config:

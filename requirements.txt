@@ -1,6 +1,6 @@
-python-docx>=0.8.11
-langchain-core>=0.1.0
-langchain-groq>=0.0.1
-langchain-openai>=0.0.1
-langchain-google-genai>=0.0.1
-PyYAML>=6.0 
+python-docx
+PyYAML
+langchain-core
+langchain-groq
+langchain-openai
+langchain-google-genai

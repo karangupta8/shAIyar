@@ -18,7 +18,6 @@ class LLMConfig:
     api_key: str
     temperature: float = 0.7
     max_tokens: int = 4096
-    chunk_size: int = 1000
 
 
 @dataclass
@@ -53,8 +52,7 @@ class Config:
             model_name="llama3-70b-8192",
             api_key="",
             temperature=0.7,
-            max_tokens=4096,
-            chunk_size=1000
+            max_tokens=4096
         )
         
         self.file_config = FileConfig(
