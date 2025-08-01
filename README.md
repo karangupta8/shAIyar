@@ -1,10 +1,10 @@
 ## Project Description
-ShAIyar is an assistant designed to enhance the reading experience of literature, particularly poetry, for bilingual individuals. The application ingests literature and provides transliteration, translation, and explanation of difficult words. It makes it easy to enjoy content originally created in languages the user is not proficient in.
+ShAIyar is an AI tool designed to enhance reading experience of literature, particularly poetry, for bilingual individuals. The application ingests literature content and provides transliteration, translation, and explanation of difficult words making it easy to enjoy content originally created in languages the user is not proficient in.
 
 The name "ShAIyar" combines "Shayar," the Urdu/Hindi word for "poet," with "AI" (Artificial Intelligence).
 
 ## Inspiration
-In May’2025, I decided to read a classic Hindi poetry book, Madhushala. It was published in 1935 and is written by the iconic Harivansh Rai Bachchan. Even though Hindi is my second native language, my Hindi vocabulary wasn't so efficient to read this book smoothly especially when its language is relatively archaic for Today. I had to constantly Google words while reading which impended to trule enjoy the read. Moreover, its difficult to search Hindi words as I don't know how to type in Devanagari script.
+In May’2025, I decided to read the classic Hindi poetry book titled "Madhushala". It was published in 1935 and is authored by the iconic poet of the era 'Harivansh Rai Bachchan'. Despite Hindi being my second native language, my vocabulary of the language wasn't wide enough to read this book smoothly especially when its language is relatively archaic. I had to constantly Google words while reading which impended to trule enjoy the read. Moreover, its difficult to search Hindi words as I don't know how to type in Devanagari script.
 I did not find any appropriate translations of the book online. However, I did find its digital copy in Public Domain. So I had an idea to translate it myself while maintaining the original essence as much as possible. I could then get this personlized translation printed out and read it effortlessly.
 
 
